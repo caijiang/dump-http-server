@@ -61,6 +61,7 @@ class Server implements HttpHandler {
             objectMapper.writeValue(writer, processInfo);
         }
 
+        httpExchange.getResponseHeaders().add("Server", "Dump Server By Caijiang");
         httpExchange.sendResponseHeaders(status, 0);
         httpExchange.close();
 
