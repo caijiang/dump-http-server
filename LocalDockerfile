@@ -1,0 +1,8 @@
+
+FROM registry.cn-shanghai.aliyuncs.com/mingshz/openjdk-utf8:8-jre
+WORKDIR /opt/dhs
+COPY target/dump-http-server-1.0-SNAPSHOT-jar-with-dependencies.jar /opt/dhs/server.jar
+COPY src/main/docker/entrance.sh /sbin/entrance.sh
+RUN chmod +x /sbin/entrance.sh
+EXPOSE 80
+ENTRYPOINT ["/sbin/entrance.sh"]
